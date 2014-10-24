@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="soapui-pro-plugin-template"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <requiredProperties>
+      <requiredProperty key="type">
+      </requiredProperty>
+      <requiredProperty key="language">
+      </requiredProperty>
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/__language__</directory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

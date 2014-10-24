@@ -1,0 +1,13 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package};
+
+import com.eviware.soapui.plugins.PluginAdapter;
+import com.eviware.soapui.plugins.PluginConfiguration;
+
+@PluginConfiguration(groupId = "${groupId}.plugins", name = "${artifactId} SoapUI ${type}", version = "0.1",
+        autoDetect = true, description = "${artifactId} SoapUI ${type}",
+        infoUrl = "" )
+public class PluginConfig extends PluginAdapter {
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.smartbear</groupId>
+    <artifactId>ready-api-plugins</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>ready-api-plugin-template</module>
+        <module>ready-api-plugin-archetype</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>eviware</id>
+            <name>Eviware Maven2 Repository</name>
+            <url>http://www.eviware.com/repository/maven2</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Central Maven2 Repository</name>
+            <url>http://repo1.maven.org/maven2</url>
+        </repository>
+    </repositories>
+
+</project>
