@@ -1,3 +1,4 @@
+## How to create Actions in Ready! API
 Ready! API defines the concepts of Actions, ActionGroups and ActionMappings; 
 - Actions are singleton functions most commonly invoked through some UI component (toolbar buttons, menu items, etc) on a target [ModelItem](https://github.com/SmartBear/axm/blob/next/ready-api-core/src/main/java/com/eviware/soapui/model/ModelItem.java) object
 - ActionGroups are groups of actions that together form top-level/popup menus, toolbars, etc. 
@@ -9,127 +10,28 @@ The [SoapUIAction](https://github.com/SmartBear/axm/blob/next/soapui/src/main/ja
 
 Both Actions and ActionGroups are internally identified by unique ID:s, which are used for referencing them in related objects, methods and annotations.
 
-### The TargetProvider interface
+### Defining an Action
+To define an action in a plugin, all you need to do the following:
+1. Create a class extending AbstractSoapUIAction<T>, where T is the type of model item you want to perform the action for, such as RestService or TestSuite.
+2. Define a constructor calling the constructor AbstractSoapUIAction(String, String). The first argument will be used as the text for the action in the menu etc; the second argument will be used as the tooltip text. 
+3. Annotate the class with @ActionConfiguration, setting the attribute actionGroup to the ID of the Action group (i.e. the menu) you want the action to appear in.
 
-In SoapUI, action-groups were dynamically transformed into popup-menus for a selected ModelItem (allowing all actions in an ActionGroup to work on the same type and instance of a ModelItem) - in Ready! API this changes as top-level menus and toolbars can contain Actions that target different ModelItems - requiring an extension of the underlying Action mechanism. 
-
-The most notable addition to achieve this is the TargetProvider interface;
-
+Here is an example, taken from the [Retrofit Plugin](https://github.com/olensmar/soapui-retrofit-plugin):
 ```java
-package com.eviware.soapui.support.action.swing;
+@ActionConfiguration( actionGroup = "RestServiceActions" )
+public class GenerateRetrofitAction extends AbstractSoapUIAction<RestService> {
 
-import com.eviware.soapui.model.ModelItem;
 
-/**
- * Defers the selection of an action target until when the action is actually invoked
- */
-
-public interface TargetProvider<T extends ModelItem> {
-    T getTargetModelItem();
-
-    public static class StaticTargetProvider<T extends ModelItem> implements TargetProvider<T> {
-        private final T target;
-
-        public StaticTargetProvider(T target) {
-            this.target = target;
-        }
-
-        @Override
-        public T getTargetModelItem() {
-            return target;
-        }
+    public GenerateRetrofitAction()
+    {
+        super( "Generate Retrofit Interface", "Generates a Retrofit Java Interface for this REST API");
     }
-
-}
-```
-Internally created action mappings now hold a reference to a TargetProvider instead of a static target ModelItem object, which provides the target object for an Action when the action is invoked. 
-
-As you can see a StaticTargetProvider is available for action mappings that work on a fixed object (for example top-level Workspace actions).
-
-### ActionGroup and ActionMapping Annotations  
-
-Ready! API further extends the Action annotation possibility to include not only actions (which was done via the afore mentioned annotations), but also entire action groups via the ActionGroup and ActionMapping annotations, which allows Ready! API modules to define all their menus and toolbars via annotations only, for example;
-
-```java
-package com.smartbear.ready.ui.actions.file;
-
-import com.eviware.soapui.actions.SoapUIPreferencesAction;
-import com.eviware.soapui.model.workspace.Workspace;
-import com.eviware.soapui.plugins.ActionGroup;
-import com.eviware.soapui.plugins.ActionMapping;
-import com.eviware.soapui.support.action.support.DefaultSoapUIActionGroup;
-import com.smartbear.ready.ui.actions.ReadyApiCommonActionGroups;
-
-@ActionGroup(actions = {
-        @ActionMapping(groupId = "WorkspaceImplActions", type = ActionMapping.Type.INSERT),
-        @ActionMapping(type = ActionMapping.Type.SEPARATOR),
-        @ActionMapping(actionClass = SoapUIPreferencesAction.class),
-        @ActionMapping(actionClass = SavePreferencesAction.class),
-        @ActionMapping(actionClass = ImportPreferencesAction.class),
-        @ActionMapping(type = ActionMapping.Type.SEPARATOR),
-        @ActionMapping(actionClass = ExitAction.class),
-})
-public class FileMenuActionGroup extends DefaultSoapUIActionGroup<Workspace> {
-    public FileMenuActionGroup() {
-        super(ReadyApiCommonActionGroups.READY_API_FILE_ACTIONS, "File");
-    }
-}
-```
-Here you can see several features in action;
-- the first @ActionMapping inserts an entire actiongroup into this group, allowing for re-usable groups of actions to be defined. Using the ActionMapping.Type.GROUP type would have resulted in a sub-menu instead.
-- two separators are added by setting the type of mapping to ActionMapping.Type.Separator
-- the actionClasses defined can be either SoapUIActions or regular Swing Actions - the later will get the current target object specified as the source object of the corresponding ActionEvent.
-
-The annotation is applied to classes that implements the SoapUIActionGroup interface - the DefaultSoapUIActionGroup class can be used in most cases as super-class, which only requires you to specify an ID and Name for the group. If you want to customize how actions in an action group are translated into ActionMapping objects you can override the getActionMappings(...) method in SoapUIActionGroup, you could for example return different mappings based on which license(s) a user.
-
-### Enabling/Disabling menu/toolbar actions
-
-The ActionConfiguration annotation has been extended with targetType- if specified in conjunction with building top level menus and toolbars with the corresponding ReadyApiModuleMenu objects - the corresponding menu-items and toolbar items will get enabled/disabled as their corresponding target objects are selected in the Ready! API user interface.
-
-For example, the following action:
-
-```java
-ActionConfiguration(actionGroup = ApisActionGroups.APIS_MODULE_TOP_LEVEL_PROJECT_ACTIONS,
-        targetType = Interface.class)
-public class ShowInterfaceNameAction extends AbstractSoapUIAction<Interface> {
-
-    public ShowInterfaceNameAction() {
-        super("ShowInterfaceNameAction", "Show Interface Name", "Shows the name of this interface");
-    }
-
-    @Override
-    public void perform(Interface target, Object param) {
-        UISupport.showInfoMessage("The name of this interface is " + target.getName());
-    }
-}
-```
-Will only be enabled if an Interface or one of its contained objects is in focus. 
-
-Sometimes this is not enough though; perhaps an action should be enabled based on some state of the target object - which is where the TargetProvider interface (shown above) come into play. Action should implement TargetProvider interface in that case and override method 'getTargetModelItem()' to return an instance of model item only when conditions are met otherwise it should return null. Implementing this interface will cause the ReadyApiModuleMenu class to query the action itself for target model item and it will enable it if model item is not null. For example following action
-```java
-@ActionConfiguration(actionGroup = ApisActionGroups.APIS_MODULE_TOP_LEVEL_PROJECT_ACTIONS, targetType = Interface.class)
-public class ShowInterfaceNameAction extends AbstractSoapUIAction<Interface> implements TargetProvider<Interface> {
-    private ContextModelItemProvider<Interface> contextModelItemProvider;
-
-    public ShowInterfaceNameAction() {
-        super("ShowInterfaceNameAction", "Show Interface Name", "Shows the name of this interface");
-        contextModelItemProvider = new ContextModelItemProvider(Interface.class);
-    }
-
-    @Override
-    public void perform(Interface target, Object param) {
-        UISupport.showInfoMessage("The name of this interface is " + target.getName());
-    }
-
-    @Override
-    public Interface getTargetModelItem() {
-        Interface targetModelItem = contextModelItemProvider.getTargetModelItem();
-        return targetModelItem.getName().startsWith("A") ? targetModelItem: null;
-    }
-}
 
 ```
-Will result in only Interfaces with a name starting with an 'A' to get enabled.
+
+This action will add the item Generate Retrofit Interface to the context menu for a REST Service, shown in the Projects Tool. When the menu item is clicked, the perform() method of the action class will be invoked, and the REST service will be passed as a parameter.
+
+
 
 ### Ready! API Actions and Guice 
 
@@ -158,22 +60,7 @@ ActionSupport.addActions( menu, anotherActionList );
 // add action to a toolbar
 ActionSupport.addAction( myToolbar, actionList );
 ```
-### ReadyApiModuleMenu
-If you're building an Ready! API module using the ClassicModuleGui for its UI you can use the ReadyApiModuleMenu class to easily build menus that automatically enable/disable actions as items are selected in the UI (as mentioned above). Create an ReadyApiModuleMenu object in the buildMenus() method of your Module GUI, add menus to it - and return it's menus from your method:
-```
- @Override
-    protected List<JMenu> buildMenus() {
-        ClassicModulePanel moduleUI = getComponent();
 
-        moduleMenus = new ReadyApiModuleMenu(moduleUI);
-        moduleMenus.addMenu("Some Menu", someActionGroupId ).
-                addMenu("Another Menu", anotherActionGroupId ).
-                buildMenus();
-
-        return moduleMenus.getMenus();
-    }
-```
-ReadyApiModuleMenu automatically adds the required Desktop/Navigator listeners to keep track of current selections to enable/disable action based on their targetType annotation property - and it will also provide the correct taget object when actions are invoked.
 
 ### Things to remember
 Actions are singletons - which means that they will be invoked for different target objects - make sure to clear an target-object-specific content (for example in a dialog field) each time an action is invoked. If possible, don't share any state whatsoever across invocations.
