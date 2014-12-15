@@ -1,12 +1,12 @@
 Ready! Api Plugin Development Kit
 ==================================
 
-Here you'll hopefully find everything needed to get started with building plugins for SmartBear's Ready! API Platform.
+Here you'll find everything needed to get started with building plugins for SmartBear's Ready! API Platform.
 
 * Go to http://readyapi.smartbear.com/dev/start for documentation, samples, etc
 * Check out and build this project locally to get access to the maven archetype and plugin template for getting started
   quickly with building plugins.
-
+    
 We've also included documentation on how to build different plugin components.
 
 * [Actions](actions-basic.md) - how to add menu and toolbar items
@@ -15,8 +15,19 @@ project changes, etc.
 * [Import and Discovery methods](import-and-discovery.md) - how to add new ways of creating Ready! API projects from 
  external data
 
-Many of the existing plugins are open-sourced here at GitHub - have a look at them to get an understanding of how to
-add similar features to your plugins:
+And some general guidelines for Ready! API plugin development.
+
+* [Guice and Governator](guice-and-governator.md)
+* [The Event Bus](event-bus.md)
+* [Analytics](usage-analytics.md)
+* [General Utilities - UISupport, etc](general-utilities.md)
+* [Creating dialogs](creating-dialogs.md)
+* [Logging](logging.md) 
+
+##Existing Plugins
+
+Many of the existing plugins are open-sourced here at GitHub and make use of the above outlined extension points and 
+concepts. Have a look at them to get an understanding of how to add similar features to your plugins:
 
  * [Swagger Plugin](https://github.com/olensmar/soapui-swagger-plugin) Adds functionality for importing and exporting
  Swagger definitions to/from REST APIs,
@@ -25,6 +36,6 @@ add similar features to your plugins:
  directly from there.
  * [API Blueprint Plugin](https://github.com/olensmar/soapui-blueprint-plugin) Adds functionality for importing and exporting
  API-Blueprint definitions to/from REST APIs. 
- * [Groovy Console Plugin](https://github.com/olensmar/soapui-blueprint-plugin) Adds an interactive Groovy Console for 
+ * [Groovy Console Plugin](https://github.com/olensmar/soapui-groovy-console-plugin) Adds an interactive Groovy Console for 
  trying out groovy scripts dynamically within Ready! API
  
