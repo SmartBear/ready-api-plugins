@@ -1,5 +1,6 @@
 ## How to create Actions in Ready! API
 Ready! API defines the concepts of Actions, ActionGroups and ActionMappings; 
+
 - Actions are singleton functions most commonly invoked through some UI component (toolbar buttons, menu items, etc) on a target [ModelItem](https://github.com/SmartBear/soapui/blob/next/ready-api-core/src/main/java/com/eviware/soapui/model/ModelItem.java) object
 - ActionGroups are groups of actions that together form top-level/popup menus, toolbars, etc. 
 - ActionMappings define the relationship between an Action and a specific ActionGroup; a single Action can be mapped to multiple ActionGroups, and have different names, descriptions, keyboard-shortcuts, etc. For example, a generic "Rename" Action could be mapped into multiple menus/popup/etc.
@@ -16,6 +17,7 @@ The template used to generate this file can be found [here](ready-api-plugin-arc
 
 ### Defining an Action
 To define an action in a plugin, all you need to do the following:
+
 1. Create a class extending AbstractSoapUIAction<T>, where T is the type of model item you want to perform the action for, such as RestService or TestSuite.
 2. Define a constructor calling the constructor AbstractSoapUIAction(String, String). The first argument will be used as the text for the action in the menu etc; the second argument will be used as the tooltip text. 
 3. Annotate the class with @ActionConfiguration, setting the attribute actionGroup to the ID of the Action group (i.e. the menu) you want the action to appear in.
