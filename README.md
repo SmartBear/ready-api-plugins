@@ -7,8 +7,24 @@ Here you'll hopefully find everything needed to get started with building plugin
 * Check out and build this project locally to get access to the maven archetype and plugin template for getting started
   quickly with building plugins.
 
-
 We've also included documentation on how to build different plugin components.
-* [Actions](actions-basic.md)
-* [Listeners](listeners.md)
-* [Import and Discovery methods](import-and-discovery.md)
+
+* [Actions](actions-basic.md) - how to add menu and toolbar items
+* [Listeners](listeners.md) - how to handle events occurring during the usage of Ready! API, for example test-executions,
+project changes, etc.                                      
+* [Import and Discovery methods](import-and-discovery.md) - how to add new ways of creating Ready! API projects from 
+ external data
+
+Many of the existing plugins are open-sourced here at GitHub - have a look at them to get an understanding of how to
+add similar features to your plugins:
+
+ * [Swagger Plugin](https://github.com/olensmar/soapui-swagger-plugin) Adds functionality for importing and exporting
+ Swagger definitions to/from REST APIs,
+ * [RAML Plugin](https://github.com/olensmar/soapui-raml-plugin) Adds functionality for importing and exporting RAML
+ definitions to/from REST APIs. Also has an action to browser the Mulesoft ApiHub API directory and import API definitions
+ directly from there.
+ * [API Blueprint Plugin](https://github.com/olensmar/soapui-blueprint-plugin) Adds functionality for importing and exporting
+ API-Blueprint definitions to/from REST APIs. 
+ * [Groovy Console Plugin](https://github.com/olensmar/soapui-blueprint-plugin) Adds an interactive Groovy Console for 
+ trying out groovy scripts dynamically within Ready! API
+ 
