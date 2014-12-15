@@ -9,5 +9,5 @@ Here you'll hopefully find everything needed to get started with building plugin
 
 
 We've also included documentation on how to build different plugin components.
-* [Actions](actions.md)
+* [Actions](actions-basic.md)
 * [Listeners](listeners.md)
