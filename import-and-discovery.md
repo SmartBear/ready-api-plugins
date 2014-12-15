@@ -12,6 +12,7 @@ organizes it internally before creating a project, or services to add to a proje
 
 ### Steps for implementing an Import method
 To define an Import method in a plugin, do the following:
+
 1. Create an action class targeting the class `WorkspaceImpl`, just like a standalone action, but without the annotation.
 2. Create a class implementing the `ImportMethod` interface, and have the `getImportMethod()` method return the action created in the previous step.
 3. Annotate the `ImportMethod` class with `@PluginImportMethod`, setting the attribute label to the label you want it to have in the New project dialog.
@@ -21,6 +22,7 @@ will be invoked.
 
 ### Steps for implementing an Discovery method
 To define an Import method in a plugin, do the following:
+
 1. Create a class implementing the `ImportMethod` interface, which will be either synchronous or asynchronous (see below).
 2. Annotate the `DiscoveryMethod` class with `@PluginDiscoveryMethod`, setting the attribute label to the label you want it to have in the New project dialog.
 
