@@ -1,1 +1,11 @@
 #General Utilities
+
+Ready! API contains a number of general utility classes that can greatly simplify common tasks.
+
+## UISupport
+
+[UISupport]() contains a large number of general UI-related utilities, including methods for
+
+- showing popup alerts and prompts
+- building coming UI elements (toolbars, splitters, panels)
+- showing objects from the Ready! API object model
