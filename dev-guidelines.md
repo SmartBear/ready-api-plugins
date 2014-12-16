@@ -1,5 +1,13 @@
 #General Guidelines
 
+General topics to help you build your plugins:
+
+- [Guice and Governator](#GuiceandGovernator)
+- [UISupport](#UISupport)
+- [Logging](#Logging)
+- [Usage Analytics](#UsageAnalytics)
+- [The Event Bus](#TheEventBus)
+
 ##Guice and Governator
 
 Ready! API uses Google [Guice](https://github.com/google/guice/wiki/GettingStarted) as its dependency-injection 
@@ -11,16 +19,16 @@ The following table lists types that might be of interest for injection:
 
 |Type |  Description|
 |------ | -------------|
-|Workspace.class | the root object of the object model; gives access to all projects and their contents|
+|[Workspace.class](http://www.soapui.org/apidocs/com/eviware/soapui/model/workspace/Workspace.html) | the root object of the object model; gives access to all projects and their contents|
 |ReadyApiEventBus.class | for passing synchronous and asynchronous events, see below|
 
 ## UISupport
 
 [UISupport](http://www.soapui.org/apidocs/com/eviware/soapui/support/UISupport.html) contains a large number of static general UI-related utilities, including methods for
 
-- showing popup alerts and prompts
-- building coming UI elements (toolbars, splitters, panels)
-- opening windows for objects from the Ready! API object model
+- Showing popup alerts and prompts
+- Building common UI elements (toolbars, splitters, panels)
+- Opening windows for objects from the Ready! API object model
 
 ##Logging
 
