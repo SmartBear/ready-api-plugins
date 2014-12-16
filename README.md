@@ -17,12 +17,10 @@ project changes, etc.
 
 And some general guidelines for Ready! API plugin development.
 
-* [General Architecture](architecture.md)
-* [The Event Bus](event-bus.md)
-* [General Utilities - UISupport, etc](general-utilities.md)
+* [General Guidelines](dev-guidelines.md)
 * [Creating dialogs](creating-dialogs.md)
-* [Analytics](usage-analytics.md)
-* [Logging](logging.md) 
+
+If you're looking for some specific content - please don't hesitate to open issues here on the project!
 
 ##Existing Plugins
 
