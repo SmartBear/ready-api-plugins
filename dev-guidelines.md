@@ -2,11 +2,11 @@
 
 General topics to help you build your plugins:
 
-- [Guice and Governator](#GuiceandGovernator)
-- [UISupport](#UISupport)
-- [Logging](#Logging)
-- [Usage Analytics](#UsageAnalytics)
-- [The Event Bus](#TheEventBus)
+- [Guice and Governator](#guice-and-governator)
+- [UISupport](#uisupport)
+- [Logging](#logging)
+- [Usage Analytics](#usage-analytics)
+- [The Event Bus](#the-event-bus)
 
 ##Guice and Governator
 
