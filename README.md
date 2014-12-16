@@ -20,7 +20,8 @@ And some general guidelines for Ready! API plugin development.
 * [General Guidelines](dev-guidelines.md) (Guice/Governator, Logging, Analytics, etc...)
 * [Creating dialogs](creating-dialogs.md)
 
-If you're looking for some specific content - please don't hesitate to open issues here on the project!
+If you're looking for some specific content - please don't hesitate to 
+[open an issue](https://github.com/SmartBear/ready-api-plugins/issues/new)!
 
 ##Existing Plugins
 
