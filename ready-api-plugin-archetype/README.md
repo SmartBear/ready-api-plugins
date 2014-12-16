@@ -48,10 +48,8 @@ plugin by simply changing to the generated plugin directory and running
 mvn install
 ```
 
-This will generate a plugin jar file in the target folder of your project. If you want to install the plugin in SoapUI
-simply open the open the Plugin Manager in SoapUI and choose to load a plugin from file (if you get a complaint about
-the version being invalid go into the generate PluginConfig class and change the version attribute of the PluginConfiguration
-annotation to a valid value, for example "1.0.0" - and rebuild the plugin).
+This will generate a plugin jar file in the target folder of your project. If you want to install the plugin in Ready! API
+simply open the open the Plugin Manager from the main toolbar and choose to load a plugin from file (if you get a complaint about the version being invalid go into the generate PluginConfig class and change the version attribute of the PluginConfiguration sannotation to a valid value, for example "1.0.0" - and rebuild the plugin).
 
 Good Luck!
 
