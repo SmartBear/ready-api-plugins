@@ -17,11 +17,11 @@ project changes, etc.
 
 And some general guidelines for Ready! API plugin development.
 
-* [Guice and Governator](guice-and-governator.md)
+* [General Architecture](architecture.md)
 * [The Event Bus](event-bus.md)
-* [Analytics](usage-analytics.md)
 * [General Utilities - UISupport, etc](general-utilities.md)
 * [Creating dialogs](creating-dialogs.md)
+* [Analytics](usage-analytics.md)
 * [Logging](logging.md) 
 
 ##Existing Plugins
