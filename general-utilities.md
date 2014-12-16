@@ -4,7 +4,7 @@ Ready! API contains a number of general utility classes that can greatly simplif
 
 ## UISupport
 
-[UISupport]() contains a large number of static general UI-related utilities, including methods for
+[UISupport](http://www.soapui.org/apidocs/com/eviware/soapui/support/UISupport.html) contains a large number of static general UI-related utilities, including methods for
 
 - showing popup alerts and prompts
 - building coming UI elements (toolbars, splitters, panels)
