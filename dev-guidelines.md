@@ -2,25 +2,10 @@
 
 General topics to help you build your plugins:
 
-- [Guice and Governator](#guice-and-governator)
 - [UISupport](#uisupport)
 - [Logging](#logging)
 - [Usage Analytics](#usage-analytics)
 - [The Event Bus](#the-event-bus)
-
-##Guice and Governator
-
-Ready! API uses Google [Guice](https://github.com/google/guice/wiki/GettingStarted) as its dependency-injection 
-framework and NetFlix [Governator](https://github.com/Netflix/governator/wiki) for lifecycle functionality 
-(@PostCreate, @PreDestroy, etc). All plugin classes that are loaded via one of the described plugin annotations will
-get instantiated through Guice and thus have the possibility to inject any other exposed Ready! API class.
-
-The following table lists types that might be of interest for injection:
-
-|Type |  Description|
-|------ | -------------|
-|[Workspace.class](http://www.soapui.org/apidocs/com/eviware/soapui/model/workspace/Workspace.html) | the root object of the object model; gives access to all projects and their contents|
-|ReadyApiEventBus.class | for passing synchronous and asynchronous events, see below|
 
 ## UISupport
 
