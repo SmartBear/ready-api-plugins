@@ -37,4 +37,7 @@ concepts. Have a look at them to get an understanding of how to add similar feat
  API-Blueprint definitions to/from REST APIs. 
  * [Groovy Console Plugin](https://github.com/olensmar/soapui-groovy-console-plugin) Adds an interactive Groovy Console for 
  trying out groovy scripts dynamically within Ready! API
+ * [3Scale Plugin](https://github.com/SmartBear/ready-3scale-plugin) Allows you to import APIs directly from a 3Scale hosted developer portal.
+
+
  
