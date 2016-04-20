@@ -26,6 +26,11 @@ public class SampleDiscoveryMethod implements DiscoveryMethod {
     }
 
     @Override
+    public String getDescription() {
+        return "Dummy Discovery method - doesn't actually do anything.";
+    }
+
+    @Override
     public String getLabel() {
         return "Ghost Discovery!";
     }

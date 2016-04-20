@@ -12,6 +12,7 @@ import com.eviware.soapui.model.util.BaseResponse;
 import com.eviware.soapui.plugins.auto.PluginRequestTransport;
 import com.eviware.soapui.support.UISupport;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 
 /**
@@ -76,6 +77,15 @@ public class SampleRequestTransport implements RequestTransport {
         @Override
         public URL getURL() {
             return null;
+        }
+
+        @Override
+        public byte[] getRawResponseBody() {
+            try {
+                return responseContent == null ? new byte[0] : responseContent.getBytes("UTF-8");
+            } catch (UnsupportedEncodingException wontHappen) {
+                return new byte[0];
+            }
         }
 
         @Override
