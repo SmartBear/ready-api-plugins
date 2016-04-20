@@ -26,6 +26,11 @@ public class SampleDiscoveryMethod implements DiscoveryMethod {
     }
 
     @Override
+    public String getDescription() {
+        return null;
+    }
+
+    @Override
     public String getLabel() {
         return "Ghost Discovery!";
     }
