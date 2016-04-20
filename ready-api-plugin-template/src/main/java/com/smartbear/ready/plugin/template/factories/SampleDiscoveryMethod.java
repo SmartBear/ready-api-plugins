@@ -27,7 +27,7 @@ public class SampleDiscoveryMethod implements DiscoveryMethod {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Dummy Discovery method - doesn't actually do anything.";
     }
 
     @Override
