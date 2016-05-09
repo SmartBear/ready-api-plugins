@@ -12,6 +12,9 @@
     <artifactId>ready-api-plugin-template</artifactId>
 
     <name>Ready! API Plugin Template</name>
+    <properties>
+        <ready-api-version>1.7.0</ready-api-version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -28,32 +31,31 @@
         <dependency>
             <groupId>com.smartbear</groupId>
             <artifactId>ready-api-core</artifactId>
-            <version>1.7.0</version>
+            <version>${ready-api-version}</version>
         </dependency>
         <dependency>
             <groupId>com.smartbear</groupId>
             <artifactId>ready-api-soapui-pro</artifactId>
-            <version>1.7.0</version>
+            <version>${ready-api-version}</version>
         </dependency>
         <dependency>
             <groupId>com.smartbear</groupId>
             <artifactId>ready-api-projects</artifactId>
-            <version>1.0.0</version>
+            <version>${ready-api-version}</version>
         </dependency>
 
     </dependencies>
-<build>
-    <plugins>
-        <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-                <source>1.7</source>
-                <target>1.7</target>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
-
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
