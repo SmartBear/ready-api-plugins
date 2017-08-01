@@ -1,4 +1,4 @@
-ReadyApi Plugin Development Kit
+ReadyAPI Plugin Development Kit
 ==================================
 
 Here you'll find everything needed to get started with building plugins for SmartBear's ReadyAPI Platform.
