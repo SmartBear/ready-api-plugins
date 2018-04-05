@@ -1,7 +1,7 @@
 ready-api-plugin-archetype
 =============================
 
-A maven archetype for creating Ready! API Plugins - supports creation of the following types of plugins:
+A maven archetype for creating ReadyAPI Plugins - supports creation of the following types of plugins:
 - Action: creates an Action, by default at the Project level 
 - Assertion: creates a custom assertion
 - Discovery: creates a custom REST Discovery method
@@ -46,7 +46,7 @@ plugin by simply changing to the generated plugin directory and running
 mvn install
 ```
 
-This will generate a plugin jar file in the target folder of your project. If you want to install the plugin in Ready! API
+This will generate a plugin jar file in the target folder of your project. If you want to install the plugin in ReadyAPI
 simply open the open the Plugin Manager from the main toolbar and choose to load a plugin from file (if you get a complaint about the version being invalid go into the generate PluginConfig class and change the version attribute of the PluginConfiguration sannotation to a valid value, for example "1.0.0" - and rebuild the plugin).
 
 Good Luck!
