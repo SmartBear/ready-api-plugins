@@ -1,7 +1,7 @@
 ready-api-plugin-template
 ==========================
 
-A sample plugin showing off most of the current extension mechanisms in Ready! API.
+A sample plugin showing off most of the current extension mechanisms in ReadyAPI.
 
 Clone the containing repository locally and run in the ready-api-plugin-template folder 
 
@@ -9,7 +9,7 @@ Clone the containing repository locally and run in the ready-api-plugin-template
 mvn install
 ```
 
-which will create a ready-api-plugin-template-1.0-SNAPSHOT.jar in your target folder. Open Ready! APIs 
+which will create a ready-api-plugin-template-1.0-SNAPSHOT.jar in your target folder. Open ReadyAPIs 
 Plugin Repository from the main toolbar and choose to load a plugin from file - select this file - which 
 will install all the extensions in Ready! API for your musing.
 
