@@ -1,7 +1,7 @@
-Ready! Api Plugin Development Kit
+ReadyAPI Plugin Development Kit
 ==================================
 
-Here you'll find everything needed to get started with building plugins for SmartBear's Ready! API Platform.
+Here you'll find everything needed to get started with building plugins for SmartBear's ReadyAPI Platform.
 
 * Go to http://readyapi.smartbear.com/dev/start for documentation, samples, etc
 * Check out and build this project locally (with ```mvn install```) to get access to the [maven archetype](https://github.com/SmartBear/ready-api-plugins/tree/master/ready-api-plugin-archetype) and [plugin template](https://github.com/SmartBear/ready-api-plugins/tree/master/ready-api-plugin-template) for getting started
@@ -10,12 +10,12 @@ Here you'll find everything needed to get started with building plugins for Smar
 We've also included documentation on how to build different plugin components.
 
 * [Actions](actions-basic.md) - how to add menu and toolbar items
-* [Listeners](listeners.md) - how to handle events occurring during the usage of Ready! API, for example test-executions,
+* [Listeners](listeners.md) - how to handle events occurring during the usage of ReadyAPI, for example test-executions,
 project changes, etc.                                      
-* [Import and Discovery methods](import-and-discovery.md) - how to add new ways of creating Ready! API projects from 
+* [Import and Discovery methods](import-and-discovery.md) - how to add new ways of creating ReadyAPI projects from 
  external data
 
-And some general guidelines for Ready! API plugin development.
+And some general guidelines for ReadyAPI plugin development.
 
 * [General Guidelines](dev-guidelines.md) (Logging, Analytics, etc...)
 * [Creating dialogs](creating-dialogs.md)
@@ -36,7 +36,7 @@ concepts. Have a look at them to get an understanding of how to add similar feat
  * [API Blueprint Plugin](https://github.com/olensmar/soapui-blueprint-plugin) Adds functionality for importing and exporting
  API-Blueprint definitions to/from REST APIs. 
  * [Groovy Console Plugin](https://github.com/olensmar/soapui-groovy-console-plugin) Adds an interactive Groovy Console for 
- trying out groovy scripts dynamically within Ready! API
+ trying out groovy scripts dynamically within ReadyAPI
  * [3Scale Plugin](https://github.com/SmartBear/ready-3scale-plugin) Allows you to import APIs directly from a 3Scale hosted developer portal.
 
 
