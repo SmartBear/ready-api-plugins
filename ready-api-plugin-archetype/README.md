@@ -27,7 +27,7 @@ Usage
 Run the following maven command from the command-line:
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.smartbear -DarchetypeArtifactId=ready-api-plugin-archetype -DarchetypeCatalog=http://www.eviware.com/repository/maven2
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.smartbear -DarchetypeArtifactId=ready-api-plugin-archetype -DarchetypeCatalog=http://smartbearsoftware.com/repository/maven2/
 ```
 
 This will download the archetype from the SmartBear repository and start the project creation process. You will be prompted
