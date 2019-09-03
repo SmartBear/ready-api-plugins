@@ -9,8 +9,8 @@
     <repositories>
         <repository>
             <id>eviware</id>
-            <name>Eviware Maven2 Repository</name>
-            <url>http://www.eviware.com/repository/maven2</url>
+            <name>SmartBear Software Maven2 Repository</name>
+            <url>http://smartbearsoftware.com/repository/maven2</url>
         </repository>
         <repository>
             <id>central</id>
