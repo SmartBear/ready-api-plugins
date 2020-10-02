@@ -1,4 +1,4 @@
-#Creating Dialogs
+# Creating Dialogs
 
 Ready! API has a rather elaborate framework for building dialogs that look and behave consistently, relieving you 
 of having to write code specifically for Swing components, layouts, etc. Using the framework is achieved by the 
