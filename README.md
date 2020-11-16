@@ -3,7 +3,7 @@ ReadyAPI Plugin Development Kit
 
 Here you'll find everything needed to get started with building plugins for SmartBear's ReadyAPI Platform.
 
-* Go to http://readyapi.smartbear.com/dev/start for documentation, samples, etc
+* Go to https://support.smartbear.com/readyapi/docs/configure/plugins/dev/index.html for documentation, samples, etc
 * Check out and build this project locally (with ```mvn install```) to get access to the [maven archetype](https://github.com/SmartBear/ready-api-plugins/tree/master/ready-api-plugin-archetype) and [plugin template](https://github.com/SmartBear/ready-api-plugins/tree/master/ready-api-plugin-template) for getting started
   quickly with building plugins.
     
