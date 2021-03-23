@@ -23,7 +23,7 @@ And some general guidelines for ReadyAPI plugin development.
 If you're looking for some specific content - please don't hesitate to 
 [open an issue](https://github.com/SmartBear/ready-api-plugins/issues/new)!
 
-##Existing Plugins
+## Existing Plugins
 
 Many of the existing plugins are open-sourced here at GitHub and make use of the above outlined extension points and 
 concepts. Have a look at them to get an understanding of how to add similar features to your plugins:

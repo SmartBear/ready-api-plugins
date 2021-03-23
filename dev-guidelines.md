@@ -1,4 +1,4 @@
-#General Guidelines
+# General Guidelines
 
 General topics to help you build your plugins:
 
@@ -15,7 +15,7 @@ General topics to help you build your plugins:
 - Building common UI elements (toolbars, splitters, panels)
 - Opening windows for objects from the Ready! API object model
 
-##Logging
+## Logging
 
 Due to backwards compatibility requirements with the old SoapUI Pro codebase we still use log4j under the hood, but we use slf4j for the actual logging calls in new Ready! API code - using the log4j bridge for slf4j underneath. For classes created with Guice you can create a looger with:
 
@@ -33,7 +33,7 @@ can be injected).
 
 Currently the injector just does the same as `LoggerFactory.getLogger( <requesting class> )` 
 
-##Usage Analytics
+## Usage Analytics
 
 Ready! API provides an analytics API to track a users actions anonymously as they use the application. Adding your
 own counters is extremely easy, and SmartBear can provide you with data on the values of these counters over time.
@@ -55,7 +55,7 @@ The first call above simply logs the that user has used the "DoSomething" action
  arguments are optional - but always need to be added in pairs (name,value); the second call above adds a "Type" parameter
  with the value "VeryCool" - use this possibility where you have a limited set of possible values, for example an enumeration.
 
-##The Event Bus
+## The Event Bus
 
 Ready! API internally uses an event-bus for triggering/handling both synchronous and asynchronous events. This is meant to (over time) replace the listener approach in the SoapUI code-base; instead of each observable object handling its own collection of listeners it can use the event-bus for distributing messages.
 
