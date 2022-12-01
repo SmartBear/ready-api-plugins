@@ -2,6 +2,7 @@ package com.smartbear.ready.plugin.template.factories;
 
 import com.eviware.soapui.impl.actions.DiscoveryMethod;
 import com.eviware.soapui.impl.rest.discovery.DiscoveredRequest;
+import com.eviware.soapui.impl.rest.discovery.RestDiscoveryMethod;
 import com.eviware.soapui.model.workspace.Workspace;
 import com.eviware.soapui.plugins.auto.PluginDiscoveryMethod;
 import com.eviware.soapui.support.UISupport;
@@ -28,6 +29,11 @@ public class SampleDiscoveryMethod implements DiscoveryMethod {
     @Override
     public String getDescription() {
         return "Dummy Discovery method - doesn't actually do anything.";
+    }
+
+    @Override
+    public RestDiscoveryMethod getRestDiscoveryMethod() {
+        return null;
     }
 
     @Override

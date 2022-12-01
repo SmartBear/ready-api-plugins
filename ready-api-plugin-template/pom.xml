@@ -12,8 +12,15 @@
     <artifactId>ready-api-plugin-template</artifactId>
 
     <name>Ready! API Plugin Template</name>
+    <repositories>
+        <repository>
+            <id>SoapUI_M2</id>
+            <name>SoapUI/ReadyAPI maven</name>
+            <url>https://rapi.tools.ops.smartbear.io/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
     <properties>
-        <ready-api-version>1.7.0</ready-api-version>
+        <ready-api-version>3.5.0</ready-api-version>
     </properties>
 
     <dependencies>
@@ -21,37 +28,64 @@
             <groupId>org.codehaus.gmaven.runtime</groupId>
             <artifactId>gmaven-runtime-1.8</artifactId>
             <version>1.5</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.smartbear</groupId>
             <artifactId>ready-api-core</artifactId>
             <version>${ready-api-version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.smartbear</groupId>
             <artifactId>ready-api-soapui-pro</artifactId>
             <version>${ready-api-version}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.lowagie</groupId>
+                    <artifactId>itext</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.smartbear</groupId>
             <artifactId>ready-api-projects</artifactId>
             <version>${ready-api-version}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.lowagie</groupId>
+                    <artifactId>itext</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>json</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.2.2-jdk15-fixed</version>
         </dependency>
 
     </dependencies>
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
