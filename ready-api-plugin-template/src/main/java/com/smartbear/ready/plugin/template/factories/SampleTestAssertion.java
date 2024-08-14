@@ -10,8 +10,8 @@ import com.eviware.soapui.model.testsuite.AssertionError;
 import com.eviware.soapui.model.testsuite.AssertionException;
 import com.eviware.soapui.model.testsuite.ResponseAssertion;
 import com.eviware.soapui.plugins.auto.PluginTestAssertion;
+import com.eviware.soapui.support.JsonUtil;
 import com.eviware.soapui.support.StringUtils;
-import net.sf.json.JSONSerializer;
 
 @PluginTestAssertion(id = "SampleTestAssertionId", label = "Sample JSON Content Assertion",
         category = AssertionCategoryMapping.VALIDATE_RESPONSE_CONTENT_CATEGORY,
@@ -34,7 +34,7 @@ public class SampleTestAssertion extends WsdlMessageAssertion implements Respons
                 return "Response is empty - not a valid JSON response";
             }
 
-            JSONSerializer.toJSON(messageExchange.getResponse().getContentAsString());
+            JsonUtil.getJson(messageExchange.getResponse().getContentAsString());
         } catch (Exception e) {
             throw new AssertionException(new AssertionError("JSON Parsing failed; [" + e.toString() + "]"));
         }

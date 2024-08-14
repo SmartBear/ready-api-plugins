@@ -19,9 +19,6 @@
             <url>https://rapi.tools.ops.smartbear.io/nexus/content/groups/public/</url>
         </repository>
     </repositories>
-    <properties>
-        <ready-api-version>3.5.0</ready-api-version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -82,7 +79,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
